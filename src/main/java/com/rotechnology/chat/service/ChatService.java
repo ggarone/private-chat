@@ -9,7 +9,7 @@ public interface ChatService {
     User addUser(User user);
     User updateUSer(User user);
     void deleteUser(long id);
-    List<User> getUSers();
+    List<User> getUsers();
 
 
 }
