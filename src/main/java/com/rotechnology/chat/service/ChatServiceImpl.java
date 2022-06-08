@@ -10,6 +10,7 @@ import com.rotechnology.chat.repository.UserRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @Service @RequiredArgsConstructor
@@ -20,52 +21,54 @@ public class ChatServiceImpl implements ChatService {
 
     @Override
     public User addUser(User user) {
-        return null;
+        return userRepo.save(user);
     }
 
     @Override
     public User updateUser(User user) {
-        return null;
+        return userRepo.save(user);
     }
 
     @Override
     public void deleteUser(long id) {
-
+        userRepo.deleteUserById(id);
     }
 
     @Override
     public List<User> getUsers() {
-        return null;
+        return userRepo.findAll();
     }
 
     @Override
     public User findUserById(long id) {
-        return null;
+        return userRepo.findUserById(id)
+                .orElseThrow(() -> new EntityNotFoundException());
     }
 
     @Override
     public Message addMessage(Message message) {
-        return null;
+        return messageRepo.save(message);
     }
 
     @Override
     public Message updateMessage(Message message) {
-        return null;
+        return messageRepo.save(message);
     }
 
     @Override
     public void deleteMessage(long id) {
-
+        messageRepo.deleteMessageById(id);
     }
 
     @Override
     public List<Message> getMessages() {
-        return null;
+        return messageRepo.findAll();
     }
 
     @Override
     public Message findMessageById(long id) {
-        return null;
+        return messageRepo.findMessageById(id)
+                .orElseThrow(()-> new EntityNotFoundException());
     }
 
     @Override
