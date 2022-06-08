@@ -42,7 +42,7 @@ public class ChatServiceImpl implements ChatService {
     @Override
     public User findUserById(long id) {
         return userRepo.findUserById(id)
-                .orElseThrow(() -> new EntityNotFoundException());
+                .orElseThrow(() -> new EntityNotFoundException("user"));
     }
 
     @Override
@@ -68,31 +68,32 @@ public class ChatServiceImpl implements ChatService {
     @Override
     public Message findMessageById(long id) {
         return messageRepo.findMessageById(id)
-                .orElseThrow(()-> new EntityNotFoundException());
+                .orElseThrow(() -> new EntityNotFoundException("message"));
     }
 
     @Override
     public Chat addChat(Chat chat) {
-        return null;
+        return chatRepo.save(chat);
     }
 
     @Override
     public Chat updateChat(Chat chat) {
-        return null;
+        return chatRepo.save(chat);
     }
 
     @Override
     public void deleteChat(ChatKey ck) {
-
+        chatRepo.deleteChatById(ck);
     }
 
     @Override
     public List<Chat> getChats() {
-        return null;
+        return chatRepo.findAll();
     }
 
     @Override
     public Chat findChatByCompositeKey(ChatKey ck) {
-        return null;
+        return chatRepo.findChatById(ck)
+                .orElseThrow(() -> new EntityNotFoundException("chat"));
     }
 }
