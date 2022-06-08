@@ -14,7 +14,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/Chat")
+@RequestMapping("api/chat")
 @RequiredArgsConstructor
 @Slf4j
 public class ChatResource {

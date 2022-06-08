@@ -8,12 +8,13 @@ import com.rotechnology.chat.repository.ChatRepo;
 import com.rotechnology.chat.repository.MessageRepo;
 import com.rotechnology.chat.repository.UserRepo;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
-@Service @RequiredArgsConstructor
+@Service @RequiredArgsConstructor @Slf4j
 public class ChatServiceImpl implements ChatService {
     private final UserRepo userRepo;
     private final MessageRepo messageRepo;
