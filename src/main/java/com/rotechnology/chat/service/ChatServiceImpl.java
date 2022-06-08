@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service @RequiredArgsConstructor @Slf4j
 public class ChatServiceImpl implements ChatService {
@@ -96,5 +97,20 @@ public class ChatServiceImpl implements ChatService {
     public Chat findChatByCompositeKey(ChatKey ck) {
         return chatRepo.findChatById(ck)
                 .orElseThrow(() -> new EntityNotFoundException("chat"));
+    }
+
+    @Override
+    public List<Chat> findChatBySenderAndReceiver(User sender, User receiver) {
+        return this.getChats().stream()
+                .filter(c -> (c.getId().getSenderId().equals(sender.getId()) && c.getId().getReceiverId().equals(receiver.getId())))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public Chat fromChatKeytoChat(ChatKey ck) {
+        User sender = findUserById(ck.getSenderId());
+        User receiver = findUserById(ck.getReceiverId());
+        Message message = findMessageById(ck.getMessageId());
+        return new Chat(ck,sender,receiver,message);
     }
 }

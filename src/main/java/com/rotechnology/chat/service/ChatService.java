@@ -26,7 +26,6 @@ public interface ChatService {
     void deleteChat(ChatKey ck);
     List<Chat> getChats();
     Chat findChatByCompositeKey(ChatKey ck);
-
-
-
+    List<Chat> findChatBySenderAndReceiver(User sender,User receiver);
+    Chat fromChatKeytoChat(ChatKey ck);
 }

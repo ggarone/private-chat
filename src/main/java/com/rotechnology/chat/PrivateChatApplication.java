@@ -19,7 +19,7 @@ public class PrivateChatApplication {
 		SpringApplication.run(PrivateChatApplication.class, args);
 	}
 
-//	@Bean
+	@Bean
 	CommandLineRunner run(ChatService chatService){
 		return args -> {
 			User U1 = new User(1L,"Matteo","root");
@@ -34,11 +34,10 @@ public class PrivateChatApplication {
 			chatService.addMessage(M1);
 			chatService.addMessage(M2);
 
-			ChatKey ck = new ChatKey(1L,2L,1L);
-			chatService.addChat(new Chat(ck,U1,U2,M1));
-
+			ChatKey CK1 = new ChatKey(1L,2L,1L);
+			ChatKey CK2 = new ChatKey(2L,1L,2L);
+			chatService.addChat(new Chat(CK1,U1,U2,M1));
+			chatService.addChat(new Chat(CK2,U2,U1,M2));
 		};
-
 	}
-
 }
