@@ -17,5 +17,4 @@ public class Message {
     private Long id;
     private String text;
     private LocalDate timestamp;
-
 }

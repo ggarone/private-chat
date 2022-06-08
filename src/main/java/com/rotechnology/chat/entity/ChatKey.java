@@ -19,7 +19,4 @@ public class ChatKey implements Serializable {
     private Long receiverId;
     @Column(name = "message_id")
     private Long messageId;
-
-
-
 }

@@ -1,5 +1,7 @@
 package com.rotechnology.chat.service;
 
+import com.rotechnology.chat.entity.Chat;
+import com.rotechnology.chat.entity.ChatKey;
 import com.rotechnology.chat.entity.Message;
 import com.rotechnology.chat.entity.User;
 import com.rotechnology.chat.repository.ChatRepo;
@@ -63,6 +65,31 @@ public class ChatServiceImpl implements ChatService {
 
     @Override
     public Message findMessageById(long id) {
+        return null;
+    }
+
+    @Override
+    public Chat addChat(Chat chat) {
+        return null;
+    }
+
+    @Override
+    public Chat updateChat(Chat chat) {
+        return null;
+    }
+
+    @Override
+    public void deleteChat(ChatKey ck) {
+
+    }
+
+    @Override
+    public List<Chat> getChats() {
+        return null;
+    }
+
+    @Override
+    public Chat findChatByCompositeKey(ChatKey ck) {
         return null;
     }
 }

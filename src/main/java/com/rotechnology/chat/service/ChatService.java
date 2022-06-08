@@ -1,5 +1,7 @@
 package com.rotechnology.chat.service;
 
+import com.rotechnology.chat.entity.Chat;
+import com.rotechnology.chat.entity.ChatKey;
 import com.rotechnology.chat.entity.Message;
 import com.rotechnology.chat.entity.User;
 
@@ -18,6 +20,13 @@ public interface ChatService {
     void deleteMessage(long id);
     List<Message> getMessages();
     Message findMessageById(long id);
+
+    Chat addChat(Chat chat);
+    Chat updateChat(Chat chat);
+    void deleteChat(ChatKey ck);
+    List<Chat> getChats();
+    Chat findChatByCompositeKey(ChatKey ck);
+
 
 
 }
