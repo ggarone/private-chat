@@ -8,9 +8,10 @@ import java.util.List;
 public interface ChatService {
 
     User addUser(User user);
-    User updateUSer(User user);
+    User updateUser(User user);
     void deleteUser(long id);
     List<User> getUsers();
+    User findUserById(long id);
 
     Message addMessage(Message message);
     Message updateMessage(Message message);
